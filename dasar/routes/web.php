@@ -16,3 +16,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    return view('hello', [
+        'name' => 'Ahok'
+    ]);
+});
+
+Route::get('/world', function () {
+    return view('hello/world', [
+        'name' => 'Ahok'
+    ]);
+});
+
+Route::get('/mamlzy', function () {
+    return 'Hello World!';
+});
+
+Route::redirect('/imam', '/mamlzy');
+
+Route::fallback(function () {
+    return '404';
+});
